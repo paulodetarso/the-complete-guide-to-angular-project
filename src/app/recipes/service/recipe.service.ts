@@ -7,16 +7,24 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe(
-      'Summer Colors',
-      'Delicious and rich on vitamins',
-      'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
-    ),
-    new Recipe(
-      'Nuts and Yogurt',
-      'Simple and easy to prepare',
-      'https://images.pexels.com/photos/1646711/pexels-photo-1646711.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
-    ),
+    {
+      name: 'Summer Colors',
+      description: 'Delicious and rich on vitamins',
+      imagePath: './assets/images/recipe-001.jpeg',
+      ingredients: [
+        { name: 'Carrots', amount: 5 },
+        { name: 'Potatoes', amount: 10 },
+      ]
+    },
+    {
+      name: 'Nuts and Yogurt',
+      description: 'Simple and easy to prepare',
+      imagePath: './assets/images/recipe-002.jpeg',
+      ingredients: [
+        { name: 'Nuts', amount: 20 },
+        { name: 'Spinach', amount: 7 },
+      ]
+    },
   ];
 
   /**
