@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FeatureEnum } from './enum/feature.enum';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  feature = FeatureEnum;
+  loadedFeature: FeatureEnum = FeatureEnum.RECIPE;
+
+  onNavigate(feature: FeatureEnum): void {
+    this.loadedFeature = feature;
+  }
 }
