@@ -2,13 +2,14 @@
   <div class="col-xs-12">
     <form>
       <div class="row">
-        <div class="col-sm-5 form-group">
+        <div class="col-sm-6 form-group">
           <label for="input-name">Name</label>
           <input
             #inputName
             type="text"
             id="input-name"
             class="form-control"
+            appAutoFocus
           >
         </div>
         <div class="col-sm-2 form-group">
@@ -22,24 +23,28 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-2">
           <button
             type="submit"
-            class="btn btn-success"
+            class="btn btn-success btn-block"
             (click)="onAddItem()"
           >
             Add
           </button>
+        </div>
+        <div class="col-xs-2">
           <button
             type="button"
-            class="btn btn-danger"
+            class="btn btn-danger btn-block"
             (click)="onDeleteItem()"
           >
             Delete
           </button>
+        </div>
+        <div class="col-xs-2">
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary btn-block"
             (click)="onClear()"
           >
             Clear

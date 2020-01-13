@@ -7,7 +7,9 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { AutoFocusDirective } from './shared/directive/auto-focus.directive';
 import { DropdownDirective } from './shared/directive/dropdown.directive';
+import { ShoppingListService } from './shopping-list/service/shopping-list.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
@@ -24,11 +26,16 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     ShoppingEditComponent,
 
     DropdownDirective,
+    AutoFocusDirective,
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
+  ],
+
+  providers: [
+    ShoppingListService,
   ],
 
   bootstrap: [

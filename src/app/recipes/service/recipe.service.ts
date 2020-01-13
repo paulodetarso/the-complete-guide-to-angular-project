@@ -19,8 +19,10 @@ export class RecipeService {
     ),
   ];
 
+  /**
+   * @description Returns a "copy" of list of recipes, not the reference to the original property (using the slice)
+   */
   getRecipes(): Recipe[] {
-    return this.recipes;
+    return this.recipes.slice();
   }
-
 }
