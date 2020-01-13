@@ -1,5 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Ingredient } from '../../shared/model/ingredient.model';
 import { Recipe } from '../../shared/model/recipe.model';
+import { ShoppingListService } from '../../shopping-list/service/shopping-list.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
@@ -27,10 +29,18 @@ export class RecipeService {
     },
   ];
 
+  constructor(
+    private shoppingListService: ShoppingListService,
+  ) { }
+
   /**
    * @description Returns a "copy" of list of recipes, not the reference to the original property (using the slice)
    */
   getRecipes(): Recipe[] {
     return this.recipes.slice();
+  }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]): void {
+    this.shoppingListService.addIngredients(ingredients);
   }
 }
