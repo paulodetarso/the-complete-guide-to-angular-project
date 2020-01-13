@@ -5,6 +5,7 @@
         <div class="col-sm-5 form-group">
           <label for="input-name">Name</label>
           <input
+            #inputName
             type="text"
             id="input-name"
             class="form-control"
@@ -13,7 +14,8 @@
         <div class="col-sm-2 form-group">
           <label for="input-amount">Amount</label>
           <input
-            type="text"
+            #inputAmount
+            type="number"
             id="input-amount"
             class="form-control"
           >
@@ -24,18 +26,21 @@
           <button
             type="submit"
             class="btn btn-success"
+            (click)="onAddItem()"
           >
             Add
           </button>
           <button
             type="button"
             class="btn btn-danger"
+            (click)="onDeleteItem()"
           >
             Delete
           </button>
           <button
             type="button"
             class="btn btn-primary"
+            (click)="onClear()"
           >
             Clear
           </button>
