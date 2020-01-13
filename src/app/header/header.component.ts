@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FeatureEnum } from '../enum/feature.enum';
+import { FeatureEnum } from '../shared/enum/feature.enum';
 
 @Component({
   selector: 'app-header',
