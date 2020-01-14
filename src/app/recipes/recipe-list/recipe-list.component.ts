@@ -16,7 +16,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private recipeService: RecipeService,
   ) { }
 
@@ -35,6 +35,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   onNewRecipe(): void {
-    this.router.navigate(['new'], { relativeTo: this.route });
+    this.router.navigate(['new'], { relativeTo: this.activatedRoute });
   }
 }

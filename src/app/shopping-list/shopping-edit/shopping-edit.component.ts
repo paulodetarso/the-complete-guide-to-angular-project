@@ -50,17 +50,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  onSubmit(form: NgForm): void {
-    const value = form.value;
-    const newIngredient = new Ingredient(value.name, value.amount);
-
-    if (this.editMode) {
-      this.shoppingListService.updateIngredient(this.editedItemIndex, newIngredient);
-    } else {
-      this.shoppingListService.addIngredient(newIngredient);
-    }
-
-    this.onClear();
+  focusInput(): void {
+    this.inputName.nativeElement.focus();
   }
 
   onDeleteItem(): void {
@@ -75,7 +66,16 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.focusInput();
   }
 
-  focusInput(): void {
-    this.inputName.nativeElement.focus();
+  onSubmit(): void {
+    const value = this.form.value;
+    const newIngredient = new Ingredient(value.name, value.amount);
+
+    if (this.editMode) {
+      this.shoppingListService.updateIngredient(this.editedItemIndex, newIngredient);
+    } else {
+      this.shoppingListService.addIngredient(newIngredient);
+    }
+
+    this.onClear();
   }
 }
