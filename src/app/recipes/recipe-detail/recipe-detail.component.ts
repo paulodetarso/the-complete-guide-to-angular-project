@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from '../../shared/model/recipe.model';
-import { RecipeService } from '../service/recipe.service';
+import { RecipeService } from '../../shared/service/recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -32,12 +32,16 @@ export class RecipeDetailComponent implements OnInit {
       );
   }
 
-  onAddToShoppingList() {
+  onAddToShoppingList(): void {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
-  onEditRecipe() {
+  onEditRecipe(): void {
     this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
-    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+  }
+
+  onDeleteRecipe(): void {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
   }
 }
