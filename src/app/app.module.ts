@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,8 +13,6 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipesComponent } from './recipes/recipes.component';
 import { AutoFocusDirective } from './shared/directive/auto-focus.directive';
 import { DropdownDirective } from './shared/directive/dropdown.directive';
-import { RecipeService } from './shared/service/recipe.service';
-import { ShoppingListService } from './shared/service/shopping-list.service';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
@@ -39,12 +38,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
-  ],
-
-  providers: [
-    RecipeService,
-    ShoppingListService,
   ],
 
   bootstrap: [

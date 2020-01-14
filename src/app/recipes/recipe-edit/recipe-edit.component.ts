@@ -27,15 +27,14 @@ export class RecipeEditComponent implements OnInit {
     this.activatedRoute
       .params
       .subscribe((params: Params) => {
-        this.id = +params[this.PARAM_ID];
-        this.editMode = (this.id !== null && this.id !== undefined);
+        this.id = params[this.PARAM_ID];
+        this.editMode = (this.id !== null && this.id !== undefined && !isNaN(this.id));
 
         this.initForm();
       });
   }
 
   private initForm(): void {
-
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescription = '';
@@ -49,18 +48,12 @@ export class RecipeEditComponent implements OnInit {
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
 
-      if (recipe.ingredients) {
+      if (recipe.ingredients && recipe.ingredients.length) {
         for (const ingredient of recipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({
-              name: new FormControl(
-                ingredient.name,
-                Validators.required
-              ),
-              amount: new FormControl(
-                ingredient.amount,
-                [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]
-              )
+              name: new FormControl(ingredient.name, Validators.required),
+              amount: new FormControl(ingredient.amount, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])
             })
           );
         }
@@ -92,14 +85,8 @@ export class RecipeEditComponent implements OnInit {
   onAddIngredient(): void {
     (this.recipeForm.get('ingredients') as FormArray).push(
       new FormGroup({
-        name: new FormControl(
-          null,
-          Validators.required
-        ),
-        amount: new FormControl(
-          null,
-          [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]
-        )
+        name: new FormControl(null, Validators.required),
+        amount: new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])
       })
     );
   }

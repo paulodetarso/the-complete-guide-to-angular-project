@@ -64,7 +64,10 @@
   </div>
 </div>
 
-<div class="row">
+<div
+  class="row"
+  *ngIf="recipe?.ingredients?.length"
+>
   <div class="col-xs-12">
     <h2> Ingredients: </h2>
     <ul class="list-group">

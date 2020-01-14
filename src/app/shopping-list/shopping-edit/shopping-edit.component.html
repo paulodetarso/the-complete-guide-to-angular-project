@@ -8,6 +8,7 @@
         <div class="col-sm-6 form-group">
           <label for="input-name">Name</label>
           <input
+            #inputName
             type="text"
             id="input-name"
             name="name"
@@ -56,6 +57,7 @@
           <button
             type="button"
             class="btn btn-primary btn-block"
+            [disabled]="!form.dirty"
             (click)="onClear()"
           >
             Clear

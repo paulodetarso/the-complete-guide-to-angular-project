@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 import { Ingredient } from '../../shared/model/ingredient.model';
@@ -12,6 +12,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   @ViewChild('form', { static: false })
   form: NgForm;
+
+  @ViewChild('inputName', { static: false })
+  inputName: ElementRef;
 
   editMode = false;
   editedItemIndex: number;
@@ -38,6 +41,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
             amount: this.editedItem.amount
           });
 
+          this.focusInput();
         })
     );
   }
@@ -47,7 +51,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm): void {
-
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
 
@@ -68,5 +71,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onClear(): void {
     this.editMode = false;
     this.form.reset();
+
+    this.focusInput();
+  }
+
+  focusInput(): void {
+    this.inputName.nativeElement.focus();
   }
 }

@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { RecipeService } from '../shared/service/recipe.service';
 
 @Component({
   selector: 'app-recipes',
-  templateUrl: './recipes.component.html',
-  providers: [
-    RecipeService,
-  ]
+  templateUrl: './recipes.component.html'
 })
 export class RecipesComponent {
 
